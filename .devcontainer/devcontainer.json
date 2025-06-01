@@ -1,0 +1,19 @@
+{
+  "name": "Erlang API",
+  "image": "erlang:26", 
+  "postCreateCommand": "if ! command -v rebar3 &> /dev/null; then echo 'Installing Rebar3...'; wget https://s3.amazonaws.com/rebar3/rebar3 && chmod +x rebar3 && sudo mv rebar3 /usr/local/bin/; echo 'Rebar3 installed.'; else echo 'Rebar3 already installed.'; fi",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "pgourlain.erlang", 
+        "phoenixframework.phoenix" 
+      ]
+    }
+  },
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": {
+      "label": "Application Port"
+    }
+  }
+}
